@@ -32,7 +32,7 @@ import PrintResume from "@/components/print-resume"
 
 export default function Resume() {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const { theme  , setTheme } = useTheme()
   const [activeTab, setActiveTab] = useState("profile")
   const resumeRef = useRef(null)
 
@@ -522,7 +522,7 @@ export default function Resume() {
                   </div>
                 </Card>
 
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden">
+                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 shadow-lg overflow-hidden sm:w-auto sm:max-w-none w-[100vw] max-w-[calc(100vw-32px)]">
                   <div className="p-6">
                     <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-4 flex items-center">
                       <Award className="text-indigo-600 mr-2" size={20} />

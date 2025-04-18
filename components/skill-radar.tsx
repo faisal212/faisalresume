@@ -5,7 +5,7 @@ import { useTheme } from "next-themes"
 
 export default function SkillRadar() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const { theme } = useTheme()
+  const { theme   } = useTheme()
 
   useEffect(() => {
     if (!canvasRef.current) return

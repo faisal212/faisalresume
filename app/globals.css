@@ -84,71 +84,51 @@ body {
 
 /* Print styles */
 @media print {
-  /* Hide elements not needed in print */
-  .no-print {
-    display: none !important;
-  }
-
-  /* Show elements that should only appear in print */
-  .print-only {
-    display: block !important;
-  }
-
-  /* Force background colors and images to print */
   * {
     -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
     color-adjust: exact !important;
   }
-
-  /* Ensure all tabs content is visible */
-  [data-state="inactive"] {
+  
+  .dark body {
+    background-color: #1e293b !important;
+    color: #ffffff !important;
+  }
+  
+  .dark h2, .dark h3 {
+    color: #ffffff !important;
+  }
+  
+  .dark p, .dark span, .dark li {
+    color: #cbd5e1 !important;
+  }
+  
+  .dark .bg-white {
+    background-color: #1e293b !important;
+  }
+  
+  .dark .bg-gray-100, .dark .bg-gray-200 {
+    background-color: #334155 !important;
+  }
+  
+  .dark .text-gray-700, .dark .text-gray-800 {
+    color: #f1f5f9 !important;
+  }
+  
+  .dark .text-gray-600, .dark .text-gray-500 {
+    color: #cbd5e1 !important;
+  }
+  
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .print-only {
     display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    page-break-inside: avoid;
   }
+}
 
-  /* Ensure the resume takes the full page */
-  body,
-  html {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: visible !important;
-  }
-
-  /* Ensure gradient backgrounds print properly */
-  .bg-gradient-to-r,
-  .bg-gradient-to-br {
-    background: white !important;
-    position: relative;
-  }
-
-  .bg-gradient-to-r::before,
-  .bg-gradient-to-br::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #7c3aed, #4f46e5) !important;
-    z-index: -1;
-  }
-
-  /* Ensure text is readable on print */
-  .text-white {
-    color: white !important;
-  }
-
-  /* Add page breaks where needed */
-  .page-break-after {
-    page-break-after: always;
-  }
-
-  /* Adjust canvas elements for print */
-  canvas {
-    max-width: 100% !important;
-    height: auto !important;
-  }
+@page {
+  margin: 0.5cm;
 }

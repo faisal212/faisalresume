@@ -4,6 +4,7 @@ import { forwardRef, useEffect } from "react"
 import Image from "next/image"
 import { Briefcase, Mail, Linkedin, Globe, Award, Languages, User, Code, Github } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { useTheme } from "next-themes"
 
 // This component is specifically designed for printing
 // It contains all resume content in a format optimized for PDF output
@@ -83,6 +84,9 @@ const skills = {
 }
 
 const PrintResume = forwardRef<HTMLDivElement>((props, ref) => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  
   useEffect(() => {
     // This ensures the print version is properly rendered before printing
     const handleBeforePrint = () => {
@@ -102,32 +106,103 @@ const PrintResume = forwardRef<HTMLDivElement>((props, ref) => {
     }
   }, [])
   return (
-    <div ref={ref} className="print-only hidden bg-white text-black">
+    <div 
+      ref={ref} 
+      className="print-only hidden" 
+      style={{ 
+        backgroundColor: isDark ? "#1e293b" : "#ffffff",
+        color: isDark ? "#ffffff" : "#000000" 
+      }}
+    >
       <div className="p-8">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-8 rounded-lg mb-8 flex items-center gap-6">
-          <div className="relative w-32 h-32 rounded-full overflow-hidden border-4 border-white">
+        {/* Header with theme-aware styling */}
+        <div 
+          style={{
+            backgroundColor: '#6d28d9',
+            color: 'white',
+            padding: '2rem',
+            borderRadius: '0.5rem',
+            marginBottom: '2rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.5rem'
+          }}
+        >
+          <div style={{
+            position: 'relative',
+            width: '8rem',
+            height: '8rem',
+            borderRadius: '9999px',
+            overflow: 'hidden',
+            border: '4px solid white'
+          }}>
             <Image src="https://storage.googleapis.com/my-bucket-save/1584499772625-1744902196383.jpg" alt="Faisal Aqdas" fill className="object-cover" />
           </div>
 
+          {/* Rest of header content with inline styles */}
           <div>
-            <h1 className="text-3xl font-bold">Faisal Aqdas</h1>
-            <p className="text-xl mt-1">Web Developer + LLM Automation Engineer</p>
-
-            <div className="mt-4 flex flex-wrap gap-3">
-              <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full text-sm">
+            <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold', margin: 0 }}>Faisal Aqdas</h1>
+            <p style={{ fontSize: '1.25rem', marginTop: '0.25rem' }}>Web Developer + LLM Automation Engineer</p>
+            
+            {/* Contact information */}
+            <div style={{ 
+              marginTop: '1rem',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '0.75rem'
+            }}>
+              {/* Email */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem'
+              }}>
                 <Mail size={14} />
                 <span>faisalaqdas@gmail.com</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full text-sm">
+              
+              {/* LinkedIn */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem'
+              }}>
                 <Linkedin size={14} />
                 <span>linkedin.com/in/faisal-aqdas-95b183110</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full text-sm">
+              
+              {/* GitHub */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem'
+              }}>
                 <Github size={14} />
                 <span>github.com/faisal212</span>
               </div>
-              <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full text-sm">
+              
+              {/* Location */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                padding: '0.25rem 0.75rem',
+                borderRadius: '9999px',
+                fontSize: '0.875rem'
+              }}>
                 <Globe size={14} />
                 <span>Lahore, Pakistan</span>
               </div>
@@ -137,20 +212,21 @@ const PrintResume = forwardRef<HTMLDivElement>((props, ref) => {
 
         {/* About Me */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+          <h2 className="text-2xl font-bold mb-4 flex items-center" 
+              style={{ color: isDark ? "#ffffff" : "#1e293b" }}>
             <User className="text-indigo-600 mr-2" size={24} />
             About Me
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p style={{ color: isDark ? "#cbd5e1" : "#4b5563" }} className="leading-relaxed">
             I'm a passionate Web & Mobile & AI Automation Developer with a strong foundation in React, Next.js, and
             modern web technologies — now expanding into the exciting world of AI coding, LLM integrations, and Langbase
             automations.
           </p>
-          <p className="text-gray-600 leading-relaxed mt-3">
+          <p style={{ color: isDark ? "#cbd5e1" : "#4b5563" }} className="leading-relaxed mt-3">
             Over the years, I've built scalable, high-performance applications across industries, delivering frontend
             experiences that score 90+ on performance metrics.
           </p>
-          <p className="text-gray-600 leading-relaxed mt-3">
+          <p style={{ color: isDark ? "#cbd5e1" : "#4b5563" }} className="leading-relaxed mt-3">
             Recently, I've started specializing in automated AI workflows using GPTs and Langbase — building intelligent
             agents, mission flows, campaign assistants, and smart onboarding experiences for modern platforms.
           </p>
