@@ -223,8 +223,7 @@ const PrintResume = forwardRef<HTMLDivElement>((props, ref) => {
             automations.
           </p>
           <p style={{ color: isDark ? "#cbd5e1" : "#4b5563" }} className="leading-relaxed mt-3">
-            Over the years, I've built scalable, high-performance applications across industries, delivering frontend
-            experiences that score 90+ on performance metrics.
+          Over the years, I’ve built high‑performance, scalable products across industries — from crafting custom WordPress themes and immersive Unity 3D AR experiences, to architecting React & Next.js web apps and shipping polished React Native mobile solutions — consistently achieving 90 + performance scores.
           </p>
           <p style={{ color: isDark ? "#cbd5e1" : "#4b5563" }} className="leading-relaxed mt-3">
             Recently, I've started specializing in automated AI workflows using GPTs and Langbase — building intelligent

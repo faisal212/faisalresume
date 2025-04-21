@@ -231,8 +231,7 @@ export default function Resume() {
                         integrations, and Langbase automations.
                       </p>
                       <p className="text-gray-600 dark:text-gray-300 leading-relaxed mt-3">
-                        Over the years, I've built scalable, high-performance applications across industries, delivering
-                        frontend experiences that score 90+ on performance metrics.
+                      Over the years, I’ve built high‑performance, scalable products across industries — from crafting custom WordPress themes and immersive Unity 3D AR experiences, to architecting React & Next.js web apps and shipping polished React Native mobile solutions — consistently achieving 90 + performance scores.
                       </p>
 
                       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
